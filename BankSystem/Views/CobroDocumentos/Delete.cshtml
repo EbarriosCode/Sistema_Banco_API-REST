@@ -1,0 +1,56 @@
+﻿@model BankSystem.Models.CobroDocumento
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Está seguro que va eliminar este registro?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CuentaBancaria.NombreCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CuentaBancaria.NombreCuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadCobro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadCobro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesDePago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesDePago)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action("Index","CobroDocumentos")" class="btn btn-warning"><span class="glyphicon glyphicon-arrow-left"></span></a>            
+            <input type="submit" value="Eliminar" class="btn btn-danger" />            
+        </div>
+    }
+</div>

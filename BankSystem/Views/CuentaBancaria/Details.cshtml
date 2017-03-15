@@ -1,0 +1,32 @@
+﻿@model BankSystem.Models.CuentaBancaria
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalle</h2>
+<div>
+    <h4>Cuenta Bancaria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroCuenta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCuenta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Index","CuentaBancaria")" class="btn btn-warning"><span class="glyphicon glyphicon-arrow-left"></span></a>
+    <a href="@Url.Action("Index","CuentaBancaria",new { id = Model.NumeroCuenta })" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+</p>

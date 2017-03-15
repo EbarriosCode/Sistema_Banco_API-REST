@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BankSystem.Models.CobroDocumento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Listado Cobros</h2>
+
+<p>
+    <a href="@Url.Action("Create","CobroDocumentos")" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></a>
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CuentaBancaria.NombreCuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadCobro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesDePago)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuentaBancaria.NombreCuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadCobro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesDePago)
+        </td>
+        <td class="text-right">
+            <a href="~/CobroDocumentos/Details/@item.IdCobroDocumento" class="btn btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a href="~/CobroDocumentos/Edit/@item.IdCobroDocumento" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="~/CobroDocumentos/Delete/@item.IdCobroDocumento" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+
+        </td>
+    </tr>
+}
+
+</table>

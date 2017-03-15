@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BankSystem.Models.CuentaBancaria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Registro de Cuentas</h2>
+
+<p>
+    <a href="@Url.Action("Create","CuentaBancaria")" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></a>
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroCuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCuenta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroCuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCuenta)
+        </td>
+        <td class="text-right">
+            <a href="~/CuentaBancaria/Details/@item.NumeroCuenta" class="btn btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a href="~/CuentaBancaria/Edit/@item.NumeroCuenta" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="~/CuentaBancaria/Delete/@item.NumeroCuenta" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+        </td>
+    </tr>
+}
+
+</table>
